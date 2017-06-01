@@ -1,0 +1,21 @@
+baseURL = "https://blog.vghaisas.com/"
+languageCode = "en-us"
+title = "Bit Nebula"
+theme = "hyde-like"
+
+PygmentsCodeFences = true
+pygmentsuseclasses = true
+
+[Permalinks]
+    post = "/:title/"
+
+
+[Params]
+    Author = "Vivek Ghaisas"
+    Description = "A blog with some stuff.<br>— Vivek Ghaisas"
+    DisqusShortname = "bitnebula"
+
+[[menu.main]]
+    name = "vghaisas.com"
+    url = "https://vghaisas.com"
+    weight = 10
