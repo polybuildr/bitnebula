@@ -3,6 +3,10 @@ languageCode = "en-us"
 title = "Bit Nebula"
 theme = "hyde-like"
 
+Copyright = '© 2017 Vivek Ghaisas.<br>Text content under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY-4.0</a>, code under an <a href="https://vghaisas.com/MIT" target="_blank">MIT License</a>.'
+
+GoogleAnalytics = "UA-88441640-2"
+
 PygmentsCodeFences = true
 pygmentsuseclasses = true
 
