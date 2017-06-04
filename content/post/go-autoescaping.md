@@ -73,7 +73,7 @@ func main() {
 
 [Try it out on the Go playground](https://play.golang.org/p/wKSWLphKpC). The output is `"Harry&lt;script&gt;alert(&#39;you have been pwned&#39;)&lt;/script&gt; goes to Hogwarts"`. The troublesome characters were escaped automagically, and now we don't have a code injection anymore. Awesome!
 
-So we've seen the autoescaping, but what's this about "context-awareness"? That's that part that really impressed me. Go's `html/template` package _understands_ HTML, along with CSS, Javascript and URIs. It knows what kind of escaping needs to be done where.
+So we've seen the autoescaping, but what's this about "context-awareness"? That's the part that really impressed me. Go's `html/template` package _understands_ HTML, along with CSS, Javascript and URIs. It knows what kind of escaping needs to be done where.
 
 Let's see a few examples to make better sense of this. For the data string `"<b>You're</b> weird"`, we get the following outputs from the following templates. (`.` can be used to represent the entire single input given to the template.)
 
