@@ -11,7 +11,7 @@ PygmentsCodeFences = true
 pygmentsuseclasses = true
 
 [Permalinks]
-    post = "/:title/"
+    post = "/:filename/"
 
 
 [Params]
