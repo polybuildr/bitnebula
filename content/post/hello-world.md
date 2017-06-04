@@ -1,6 +1,6 @@
 +++
 date = "2017-06-01T16:39:49+03:00"
-tags = ["meta", "software"]
+tags = ["meta", "dev"]
 title = "Hello World"
 draft = false
 +++
