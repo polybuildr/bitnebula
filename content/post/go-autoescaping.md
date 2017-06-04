@@ -1,10 +1,11 @@
 +++
-date = "2017-06-04T11:03:08+03:00"
-draft = true
+date = "2017-06-04T16:23:36+03:00"
+draft = false
 tags = ["dev", "golang", "webdev"]
 title = "Content-aware Autoescaping in Go"
 
 +++
+
 I've been working with server-side generated HTML for several years now, and the problem of code injection into HTML pages has been pervasive. A couple of days back, I discovered something fantastic that Go has built right into the standard library to help with this: context-aware autoescaping in HTML templates.
 <!--more-->
 
