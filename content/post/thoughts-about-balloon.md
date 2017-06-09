@@ -1,12 +1,14 @@
 +++
-date = "2017-06-08T15:07:57+03:00"
-draft = true
+date = "2017-06-09T18:23:26+03:00"
+draft = false
 tags = ["dev", "balloon-lang"]
 title = "Longer Thoughts About Balloon"
 
 +++
+
 I recently wrote a [post about Balloon]({{< ref "post/introducing-balloon.md" >}}), a new programming language I've been working on. In this post, I'll try to put down some more of my thoughts on what I want to see Balloon become.
 
+<!--more-->
 Here's a table of contents if you're only interested in particular sections:
 
 - [The Current State](#current-state)
@@ -23,9 +25,8 @@ Here's a table of contents if you're only interested in particular sections:
         - [Event loop](#event-loop)
         - [Multi-threaded (or even forking) web server](#multithreaded-server)
 
-But first, let's look at what the language is currently capable of.
+Let's look at what the language is currently capable of.
 
-<!--more-->
 ## The Current State {#current-state}
 
 ### The Language {#language}
@@ -38,7 +39,7 @@ var y = true or false;
 var z = "Hello, " + "world!";
 ```
 
-(Unfortunately, there's nothing that can syntax highlight Balloon properly. There's an [issue filed for that](https://github.com/polybuildr/balloon-lang/issues/40).)
+(Unfortunately, there's nothing that can syntax highlight Balloon properly. There's an [issue filed for that](https://github.com/polybuildr/balloon-lang/issues/40) labelled "help wanted". :P)
 
 It also has Python-like tuples.
 
@@ -88,7 +89,7 @@ loop {
 
 ### The Typechecker {#typechecker}
 
-Balloon comes with a basic typechecker that also infers types (given how simple the language is, this is mostly just type propagation and not modelled as constraints).
+Balloon comes with a basic typechecker that also infers types (given how simple the language is, this is mostly just propagation of types and not modelled as constraints).
 
 Running the typechecker on the following code from the [flow-test.bl test file](https://github.com/polybuildr/balloon-lang/blob/74fd840/tests/typecheck-fail/flow-test.bl)
 
@@ -152,7 +153,7 @@ multiple types from branch: `x` gets different types in branches
   |
 ```
 
-I've also [been told](https://github.com/polybuildr/balloon-lang/issues/25#issuecomment-300622467) (by Siddharth, another IIIT student who has helped me with parts of the project) that I should use a tried-and-tested type checking algorithm instead of rolling my own and there's an [issue for that](https://github.com/polybuildr/balloon-lang/issues/26).
+I've also [been told](https://github.com/polybuildr/balloon-lang/issues/25#issuecomment-300622467) (by Siddharth, another IIIT student who has helped me with parts of the project) that I should use a tried-and-tested type checking algorithm instead of rolling my own and there's an [issue for that](https://github.com/polybuildr/balloon-lang/issues/26) too.
 
 
 ### The Super-experimental LLVM Backend {#llvm-backend}
@@ -246,7 +247,7 @@ print "spaceship running"
 
 Clearly, this is a simplistic and exaggerated example, but the idea is solid. I wish to experiment with this in `balloon`, and I believe it can lead to interesting optimisation paths. This is even more so with a JIT, so we can use run-time information such as type information to specialise function calls, for instance.
 
-As an aside, a shameless plug to my own compilers/language project: [`simplexhc`](http://github.com/bollu/simplexhc) is a custom backend for Haskell that uses similar ideas to generate LLVM code. Haskell compiles to an abstract machine called `STG`, which stands for the *Spineless Tagless G-machine* (I know, sounds badass). `simplexhc` aims to generate performant `LLVM` from the `STG` description, and maybe try to use ideas from [polyhedral compilation](http://polyhedral.info/) along the way. Anyway, that's all the salesmanship I'll do here. Interested readers are advised to consult the repo.
+As an aside, a shameless plug to my own compilers/language project: [simplexhc](http://github.com/bollu/simplexhc) is a custom backend for Haskell that uses similar ideas to generate LLVM code. Haskell compiles to an abstract machine called `STG`, which stands for the *Spineless Tagless G-machine* (I know, sounds badass). `simplexhc` aims to generate performant `LLVM` from the `STG` description, and maybe try to use ideas from [polyhedral compilation](http://polyhedral.info/) along the way. Anyway, that's all the salesmanship I'll do here. Interested readers are advised to consult the repo.
 
 
 ### The Binary {#binary}
@@ -294,7 +295,7 @@ Javascript:
 TypeError: Cannot read property 'foo' of null
 ```
 
-and the similar, but more famous:
+and the similar, but more famous (and much more annoying):
 
 ```
 Uncaught TypeError: undefined is not a function
@@ -344,13 +345,13 @@ As I mentioned in my previous post about the topic, this is part of an attempt t
 
 ### Partial compilation (or even JIT) {#partial-compilation}
 
-I'd like balloon to be reasonably fast, but not necessarily super-fast, at least as an early goal. However, one thing I'd like to see is compiling certain parts of the code, such as specific functions. Opting in to this feature could maybe require full type annotations in that function. Type inference could suffice in many cases, though I'm not sure how safe that would be. And even if there were no type annotations, it would be possible to generate machine code that would then also have to use tagged unions to represent values.
+I'd like balloon to be reasonably fast, but not necessarily super-fast, at least as an early goal. However, one thing I'd like to see is compiling certain parts of the code, such as specific functions. Opting in to this feature could maybe require full type annotations in that function. Type inference could suffice in many cases, though I'm not sure how safe that would be. And even if there were no type annotations, it would be possible to generate machine code that would then have to use tagged unions to represent values.
 
 However, one particularly complex part of this would be interop between compiled code and the interpreter. There are difficult questions to answer, such as "How should Balloon functions along with the closed environment be represented in the machine code?"
 
 ### A Neat Standard Library {#neat-stdlib}
 
-A useful general purpose scripting language would need a comprehensive, "neatly" designed standard library. Starting from functions/methods on inbuilt types, to file I/O and webservers, there's a lot to think about, design, and implement. The availability of the Rust ecosystem is particularly useful, though, because one can provide Balloon APIs to well designed and well tested crates from [crates.io](https://crates.io)
+A useful general purpose scripting language would need a comprehensive, "neatly" designed standard library. Starting from functions/methods on inbuilt types, to file I/O and webservers, there's a lot to think about, design, and implement. The availability of the Rust ecosystem is particularly useful, though, because one can provide Balloon APIs to well designed and well tested crates from [crates.io](https://crates.io).
 
 ### Maybes {#maybes}
 
@@ -364,4 +365,4 @@ There are a lot of problems with PHP, but there's at least one thing I appreciat
 
 ---
 
-There are a **lot** of things I want to see in Balloon eventually. :P I don't know how much will actually happen, but I hope these ideas excite some people who end up helping out with the project. Once again, the project is at [github.com/polybuildr/balloon-lang](https://github.com/polybuildr/balloon-lang). Please do contribute!
+There are a **lot** of things I want to see in Balloon eventually, some of which are mentioned here. :P I don't know how much will actually happen, but I hope these ideas excite some people who end up helping out with the project. Once again, the project is at [github.com/polybuildr/balloon-lang](https://github.com/polybuildr/balloon-lang). Please do contribute!
