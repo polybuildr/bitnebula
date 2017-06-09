@@ -161,6 +161,94 @@ Siddharth ([@bollu](https://github.com/bollu)) has been [working on an LLVM back
 
 He would also love to have some help with the LLVM backend, so do ping him if you want to work on that stuff.
 
+##### Siddharth writing this:
+
+The current idea is to use the ["gradual lowering" ideas described in the talk by Azul](https://www.youtube.com/watch?v=sKIRIilZDnE) at EuroLLVM 2017. The `TL;DR` is that for each "virtual" instruction in the laguage bytecode, you create an LLVM function which has the same semantics. Then, you express your language optimisations in terms of LLVM passes. That way, the domain-specific language passes can help LLVM passes line inlining and dead code elimination. Similarly, LLVM passes could help language specific pass find optimisation opportunities.
+
+A high level example is something like this:
+
+```py
+class Car:
+   ...
+   def run(self):
+       print "car running"
+       
+class Spaceship:
+   ...
+   def run(self):
+       print "spaceship running"
+       
+x = None
+
+if 1 == 0:
+   x = Car()
+else:
+   x = Spaceship()
+   
+x.run()
+```
+
+A language pass before dead code elimination cannot actually figure out much about the `x.run()`, which would compile to some sort of lookup table thing. But, if dead code elimination runs, the code transforms to this:
+
+```py
+class Car:
+   ...
+   def run(self):
+       print "car running"
+       
+class Spaceship:
+   ...
+   def run(self):
+       print "spaceship running"
+       
+x = None
+x = Spaceship()
+x.run()
+```
+
+Now, the language pass can kick in and notice that the function call doesn't depend on `x` at all, and so it transforms it into some sort of global call:
+
+```py
+class Car:
+   ...
+   def run(self):
+       print "car running"
+       
+class Spaceship:
+   ...
+   def run(self):
+       print "spaceship running"
+       
+x = None
+x = Spaceship()
+# x.run() -> spaceship_run
+spaceship_run()
+```
+
+At this point, the `LLVM` inlinier can decide to inline the `print` to eliminate the overhead of a function call:
+
+```py
+class Car:
+   ...
+   def run(self):
+       print "car running"
+       
+class Spaceship:
+   ...
+   def run(self):
+       print "spaceship running"
+       
+x = None
+x = Spaceship()
+# spaceship_run() is inlined
+print "spaceship running"
+```
+
+Clearly, this is a simplistic and exaggerated example, but the idea is solid. I wish to experiment with this in `balloon`, and I believe it can lead to interesting optimisation paths. This is even more so with a JIT, so we can use run-time information such as type information to specialise function calls, for instance.
+
+As an aside, a shameless plug to my own compilers/language project: [`simplexhc`](http://github.com/bollu/simplexhc) is a custom backend for Haskell that uses similar ideas to generate LLVM code. Haskell compiles to an abstract machine called `STG`, which stands for the *Spineless Tagless G-machine* (I know, sounds badass). `simplexhc` aims to generate performant `LLVM` from the `STG` description, and maybe try to use ideas from [polyhedral compilation](http://polyhedral.info/) along the way. Anyway, that's all the salesmanship I'll do here. Interested readers are advised to consult the repo.
+
+
 ### The Binary {#binary}
 
 Given a built binary (either using Cargo or by downloading a release from GitHub), a file can be run by passing it as an argument.
