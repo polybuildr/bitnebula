@@ -9,7 +9,7 @@ title = "Introducing Balloon: A New Programming Language"
 Since February this year, I've been working on a project that I've wanted to work on for quite some time now - a new programming language. After about 200 commits, things are now in working condition!
 
 <!--more-->
-The project has just reached the 0.1.0 release and it doesn't do much yet - it certainly isn't _useful_. But it's got all the absolute basics of a programming language: values of different types, variables, conditionals, loops, functions (closures) and a even a proof-of-concept HTTP server! :P
+The project has just reached the 0.1.0 release and it doesn't do much yet - it certainly isn't _useful_. But it's got all the absolute basics of a programming language: values of different types, variables, conditionals, loops, functions (closures) and even a proof-of-concept HTTP server! :P
 
 The project is located on GitHub at [polybuildr/balloon-lang](https://github.com/polybuildr/balloon-lang) and is open sourced (licensed under the interesting [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/)). I would love to have some help on the project - please do contribute!
 
