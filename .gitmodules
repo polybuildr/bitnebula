@@ -1,0 +1,3 @@
+[submodule "themes/hyde-like"]
+	path = themes/hyde-like
+	url = https://github.com/polybuildr/hyde-like
