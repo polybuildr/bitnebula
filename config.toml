@@ -9,6 +9,9 @@ GoogleAnalytics = "UA-88441640-2"
 PygmentsCodeFences = true
 pygmentsuseclasses = true
 
+[taxonomies]
+  tag = "tags"
+
 [Permalinks]
     post = "/:filename/"
 
