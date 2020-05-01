@@ -1,0 +1,9 @@
+{{ partial "head.html" . }}
+<body class="{{ .Site.Params.themeColor }}">
+  {{ partial "sidebar.html" . }}
+  <div class="content container">
+    <h1>404. Page not found :/</h1>
+    <p>Go to the <a href="{{ .Site.BaseURL }}">home page</a>.</p>
+  </div>
+  {{ template "_internal/google_analytics_async.html" . }}
+</body>
