@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {{ if .IsHome }}
+  <title>{{ .Site.Title }}</title>
+  {{ else }}
+  <title>{{ .Title }} · {{ .Site.Title }}</title>
+  {{ end }}
+
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  {{ if eq .Kind "page" }}
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="article:published_time" {{ printf "content=\"%s\"" (.Date.Format "2006-01-02T15:04:05-0700") | safeHTMLAttr }}>
+  <meta property="og:description" content="{{ .Content | plainify | truncate 160 }}">
+  <meta name="description" content="{{ .Content | plainify | truncate 160 }}">
+  {{ else }}
+  <meta property="og:type" content="website">
+  {{ if eq .Kind "home" }}
+  <meta property="og:description" content="{{ replace (.Site.Params.Description | plainify) "\n" " " }}">
+  <meta name="description" content="{{ replace (.Site.Params.Description | plainify) "\n" " " }}">
+  {{ end }}
+  {{ end }}
+
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/theme-0.1.0.css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700">
+
+  <link rel="apple-touch-icon-precomposed" href="{{ .Site.BaseURL }}apple-touch-icon.png">
+  <link rel="shortcut icon" href="{{ .Site.BaseURL }}favicon.ico">
+
+  {{ if .RSSLink }}
+  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS" href="{{ .RSSLink }}">
+  {{ end }}
+</head>

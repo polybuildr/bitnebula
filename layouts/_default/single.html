@@ -1,0 +1,16 @@
+{{ partial "head.html" . }}
+<body class="{{ .Site.Params.themeColor }}">
+  {{ partial "sidebar.html" . }}
+  <div class="content container">
+    <article class="post">
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+    </article>
+    {{ if and (isset .Site.Params "disqusshortname") (ne .Site.Params.DisqusShortname "" )}}
+      {{ partial "disqus.html" . }}
+    {{ end }}
+  </div>
+  {{ template "_internal/google_analytics_async.html" . }}
+</body>
+</html>
