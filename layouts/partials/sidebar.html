@@ -16,6 +16,6 @@
         {{end}}
     </nav>
 
-    <p>{{ with .Site.Copyright }}{{ . | safeHTML }}{{ else }}&copy; {{ now.Format "2006"}}. All rights reserved. {{end}}</p>
+    <p>© {{ now.Format "2006" }} Vivek Ghaisas &middot; <a href="{{ "license" | absURL }}">License</a></p>
   </div>
 </div>

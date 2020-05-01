@@ -4,8 +4,6 @@ baseURL = "https://blog.vghaisas.com/"
 languageCode = "en-us"
 title = "Bit Nebula"
 
-Copyright = '© 2018 Vivek Ghaisas. <a href="https://blog.vghaisas.com/license">License</a>'
-
 GoogleAnalytics = "UA-88441640-2"
 
 PygmentsCodeFences = true
