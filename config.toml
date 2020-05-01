@@ -1,3 +1,5 @@
+# Configuration for Hugo v0.68.3
+
 baseURL = "https://blog.vghaisas.com/"
 languageCode = "en-us"
 title = "Bit Nebula"
