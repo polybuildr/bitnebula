@@ -9,7 +9,7 @@ GoogleAnalytics = "UA-88441640-2"
 PygmentsCodeFences = true
 pygmentsuseclasses = true
 
-disableKinds = ["taxonomyTerm"]
+disableKinds = ["taxonomyTerm", "RSS"]
 
 [taxonomies]
   tag = "tags"
