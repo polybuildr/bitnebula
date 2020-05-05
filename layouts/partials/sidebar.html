@@ -6,16 +6,12 @@
           {{ .Site.Title }}
         </a>
       </h1>
-      <p class="lead">{{ .Site.Params.Description | safeHTML }}</p>
+      <div class="tagline">{{ .Site.Params.Description | safeHTML }}</div>
     </div>
-
     <nav class="sidebar-nav">
-        <a href="{{ .Site.BaseURL }}">Home</a>
-        {{ range .Site.Menus.main }}
-          <a href="{{.URL}}"> {{ .Name }} </a>
-        {{end}}
+        <a href="{{ .Site.BaseURL }}">🠔 blog home</a>
+        <a href="https://vghaisas.com">🠔 vghaisas.com</a>
     </nav>
-
-    <p>© {{ now.Format "2006" }} Vivek Ghaisas &middot; <a href="{{ "license" | absURL }}">License</a></p>
+    <div>© {{ now.Format "2006" }} Vivek Ghaisas · <a href="{{ "license" | absURL }}">License</a></div>
   </div>
 </div>

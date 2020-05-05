@@ -25,8 +25,3 @@ disableKinds = ["taxonomyTerm", "RSS"]
     Author = "Vivek Ghaisas"
     Description = "A blog with some stuff.<br>— Vivek Ghaisas"
     DisqusShortname = "bitnebula"
-
-[[menu.main]]
-    name = "vghaisas.com"
-    url = "https://vghaisas.com"
-    weight = 10

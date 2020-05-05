@@ -22,12 +22,19 @@ body {
 
 html {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 1.125em;
   line-height: 1.5;
 }
-@media (min-width: 58em) {
+
+@media (min-width: 52em) {
   html {
-    font-size: 20px;
+    font-size: 1.2em;
+  }
+}
+
+@media (min-width: 120em) {
+  html {
+    font-size: 1.3em;
   }
 }
 
@@ -134,7 +141,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   padding: 1rem;
-  font-size: .8rem;
+  font-size: .9rem;
   line-height: 1.4;
   white-space: pre;
   white-space: pre-wrap;
@@ -190,7 +197,7 @@ blockquote {
 blockquote p:last-child {
   margin-bottom: 0;
 }
-@media (min-width: 30em) {
+@media (min-width: 52em) {
   blockquote {
     padding-right: 5rem;
     padding-left: 1.25rem;
@@ -224,7 +231,12 @@ tbody tr:nth-child(odd) th {
 /* Larger introductory text */
 .lead {
   font-size: 1.25rem;
-  font-weight: 300;
+}
+
+@media (min-width: 52em) {
+  .sidebar .tagline {
+    font-size: 1.25rem;
+  }
 }
 
 /* Messages */
@@ -310,7 +322,7 @@ a.pagination-item:hover {
   background-color: #f5f5f5;
 }
 
-@media (min-width: 30em) {
+@media (min-width: 52em) {
   .pagination {
     margin: 3rem 0;
   }
@@ -334,10 +346,10 @@ a.pagination-item:hover {
 .sidebar {
   text-align: center;
   padding: 1rem 1rem;
-  color: rgba(255,255,255,.5);
+  color: #999;
   background-color: #202020;
 }
-@media (min-width: 48em) {
+@media (min-width: 52em) {
   .sidebar {
     position: fixed;
     top: 0;
@@ -361,13 +373,27 @@ a.pagination-item:hover {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-size: 3.25rem;
+}
+
+@media (min-width: 52em) {
+  .sidebar-about h1 {
+    font-size: 3.25rem;
+  }
 }
 
 /* Sidebar nav */
 .sidebar-nav {
-  margin-bottom: 1rem;
+  margin: .25rem 0;
 }
+
+@media (min-width: 52em) {
+  .sidebar-nav {
+    margin: 1rem 0;
+    padding-top: 1rem;
+    border-top: 1px solid #999;
+  }
+}
+
 .sidebar-nav a {
     display: block;
     line-height: 1.75;
@@ -386,20 +412,20 @@ a.pagination-item:hover {
   padding-bottom: 2rem;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 52em) {
   .content {
     padding-top: 4rem;
     padding-bottom: 4rem;
     max-width: 38rem;
-    margin-left: 20rem;
-    margin-right: 2rem;
+    margin-left: 21rem;
+    margin-right: 3rem;
   }
 }
 
-@media (min-width: 64em) {
+@media (min-width: 120em) {
   .content {
-    margin-left: 22rem;
-    margin-right: 4rem;
+    margin-left: 23rem;
+    margin-right: 5rem;
   }
 }
 
