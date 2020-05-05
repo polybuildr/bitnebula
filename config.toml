@@ -11,6 +11,10 @@ pygmentsuseclasses = true
 
 disableKinds = ["taxonomyTerm", "RSS"]
 
+[markup.goldmark.renderer]
+  # Allow raw HTML in content.
+  unsafe= true
+
 [taxonomies]
   tag = "tags"
 
