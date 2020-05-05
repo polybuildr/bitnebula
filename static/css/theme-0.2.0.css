@@ -28,13 +28,13 @@ html {
 
 @media (min-width: 52em) {
   html {
-    font-size: 1.2em;
+    font-size: 1.25em;
   }
 }
 
 @media (min-width: 120em) {
   html {
-    font-size: 1.3em;
+    font-size: 1.35em;
   }
 }
 
