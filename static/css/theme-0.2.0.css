@@ -32,12 +32,6 @@ html {
   }
 }
 
-@media (min-width: 120em) {
-  html {
-    font-size: 1.35em;
-  }
-}
-
 body {
   color: #515151;
   background-color: #fff;
