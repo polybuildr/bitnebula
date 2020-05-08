@@ -1,5 +1,5 @@
 ---
-title: "A Problem with Circular Dependencies in Software and Lockdowns"
+title: "A Problem with Circular Dependencies in Software Systems (and Lockdowns)"
 date: 2020-05-08T15:33:43+01:00
 ---
 
