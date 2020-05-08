@@ -31,7 +31,7 @@ Well, let's say we didn't have a circular dependency. Let's say we just had a se
 
 <div style="text-align:center">
 
-![indirect circular dependency](/img/circular-dependencies/one-direction.png)
+![no circular dependency](/img/circular-dependencies/one-direction.png)
 </div>
 
 If you turned this system off, what would be the first step when turning it back on? You don't want to start with service A because service A depends on service B and something could go wrong if service B wasn't running. So you want to start with service B first and _then_ turn on service A. You probably see where I'm going with this.
