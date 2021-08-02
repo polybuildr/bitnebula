@@ -7,9 +7,6 @@
         {{ .Content }}
       </div>
     </article>
-    {{ if and (isset .Site.Params "disqusshortname") (ne .Site.Params.DisqusShortname "" )}}
-      {{ partial "disqus.html" . }}
-    {{ end }}
   </div>
   {{ template "_internal/google_analytics_async.html" . }}
   {{ partial "goatcounter.html" }}
